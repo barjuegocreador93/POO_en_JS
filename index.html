@@ -1,6 +1,8 @@
-<html>
+<html lang="es">
     <head>
         <title></title>
+        <meta charset="UTF-8">
+        <link href="style.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
 
@@ -9,13 +11,36 @@
     <script src="main.js" type="text/javascript"></script>
     <script>
         $(document).ready(function(){
-var a=new dps("diap",3);
+    var d=5;
+    var a=new dps("diap",d);
     a.maker();
-    a.idps(1,"html","h1","Esta es mi primera dipositiva");
-    a.idps(1,"html","ol","<li>skjdajksdjkl</li><li>kjaslkdjajsdjs</li>");
-    a.idps(2,"video","https://www.youtube.com/embed/yD-zf30qFSE");
-    a.idps(3,"img","http://www.misimagenesnuevas.com/wp-content/uploads/2015/imagenes-bonitas-con-frases-de-feliz-noche.jpg");
+    for(var i=0;i < d;i++){
+        a.idps(i,"html","header","","");
+        a.idps(i,"html","section","","");
+        a.idps(i,"img","https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png");
+    }
+    a.idps(0,"html","h1","GitHub","header"); 
+    a.idps(0,"html","h2","Red social del codigo","header"); 
+    a.idps(0,"html","strong","Presentado por:","section");
+    a.idps(0,"html","p","Camilo Barbosa","section");
+   
+    a.idps(1,"html","h2","¿Qué es GitHub?","header");
+    a.idps(1,"html","p","Github es una aplicación web que permite al usuario crear una forja online, donde se puede exponer el codigo y trabajar en equipo.","section");    
+        
+    a.idps(2,"html","h2","¿Cómo se trabaja en GitHub?","header");
+    a.idps(2,"html","p","Necesitas registrarte como usuario de github, luego puedes crear un repositorio publico o privado si pagas.","section","p1");    
+    a.idps(2,"html","p","Puedes participar en un repositorio que ya este creado, o puedes crear tu empresa de codigo.","section","p2");    
+       
+    a.idps(3,"video","https://www.youtube.com/embed/QuO71ZH9FIg",300,250,"section");
+    a.idps(3,"html","br","","section");
+        
+    a.idps(4,"html","h1","Gracias!!","section");
+    
+   
+    
+    
     a.main();
+    $("body").css('text-align','center');
 });
     </script>
 </html>

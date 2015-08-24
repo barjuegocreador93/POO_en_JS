@@ -19,10 +19,11 @@ function diap(clase,num_dia)
         $(html).append("<div class="+clase+num+"></div>");
     };//Crea una nueva diapositiva
 
-    this.addelem=function(html,text,cl)
+    this.addelem=function(html,text,html2,cl)
     {
-        $(this.nameClass()).append("<"+html+" class="+cl+"></"+html+">");
-        $(this.nameClass()+" "+html).append(text);
+        $(this.nameClass()+" "+html2).append("<"+html+" class="+cl+"></"+html+">");
+        if(cl!="undefined")$(this.nameClass()+" "+html+"."+cl).append(text);
+        else $(this.nameClass()+" "+html).append(text);
     };//Agrega un elemento html a la diapositiva
 
     this.addimg=function(src_img)
@@ -30,9 +31,9 @@ function diap(clase,num_dia)
         $(this.nameClass()).append("<img src="+src_img+" />");
     };//Agrega una imagen a la diapositiva
 
-    this.addvideo=function(src,width,heigth)
+    this.addvideo=function(src,width,heigth,html)
     {
-        $(this.nameClass()).append("<iframe width="+width+" height="+heigth+" src="+src+" frameborder='0' allowfullscreen></iframe>");
+        $(this.nameClass()+" "+html).append("<iframe width="+width+" height="+heigth+" src="+src+" frameborder='0' allowfullscreen></iframe>");
     };//Agrega un video de youtube a la diapositiva
 
     this.main=function()
@@ -80,17 +81,19 @@ function dps(clase,num_t_dia)//Objeto que agrupa diapositivas
 
     this.idps=function(index,tipo_ele,s1,s2,s3,s4)
     {
+        if(index < this.numtd && index >= 0){
         if(tipo_ele==="html")
             {
-                this.dips[index].addelem(s1,s2,s3);
+                this.dips[index].addelem(s1,s2,s3,s4);
             }else if(tipo_ele==="img")
                 {
                     this.dips[index].addimg(s1);
                 }
             else if(tipo_ele==="video")
                 {
-                    this.dips[index].addvideo(s1,s2,s3);
+                    this.dips[index].addvideo(s1,s2,s3,s4);
                 }
+            }else $("body").append("<h1>Tienes problemas con las diapositivas, mira su inidice como vetcor!! Diap: '"+index+"'</h1>");
     };//permite agregar nuevos objetos a las dipostivas como htmls, img, video.
 
 

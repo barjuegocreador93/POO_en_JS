@@ -31,6 +31,11 @@ function diap(clase,num_dia)
         $(this.nameClass()).append("<img src="+src_img+" />");
     };//Agrega una imagen a la diapositiva
 
+    this.adda=function(href, html2, text)
+    {
+         $(this.nameClass()+" "+html2).append("<a href="+href+">"+text+"</a>");
+    }
+    
     this.addvideo=function(src,width,heigth,html)
     {
         $(this.nameClass()+" "+html).append("<iframe width="+width+" height="+heigth+" src="+src+" frameborder='0' allowfullscreen></iframe>");
@@ -92,8 +97,12 @@ function dps(clase,num_t_dia)//Objeto que agrupa diapositivas
             else if(tipo_ele==="video")
                 {
                     this.dips[index].addvideo(s1,s2,s3,s4);
+                }else if(tipo_ele==="a")
+                {
+                    this.dips[index].adda(s1,s2,s3);
                 }
             }else $("body").append("<h1>Tienes problemas con las diapositivas, mira su inidice como vetcor!! Diap: '"+index+"'</h1>");
+            
     };//permite agregar nuevos objetos a las dipostivas como htmls, img, video.
 
 

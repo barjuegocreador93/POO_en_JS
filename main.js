@@ -22,7 +22,7 @@ function diap(clase,num_dia)
     this.addelem=function(html,text,html2,cl)
     {
         $(this.nameClass()+" "+html2).append("<"+html+" class="+cl+"></"+html+">");
-        if(cl!="undefined")$(this.nameClass()+" "+html+" ."+cl).append(text);
+        if(cl!="undefined")$(this.nameClass()+" "+html+"."+cl).append(text);
         else $(this.nameClass()+" "+html).append(text);
     };//Agrega un elemento html a la diapositiva
 

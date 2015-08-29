@@ -65,7 +65,7 @@ function dps(clase,num_t_dia)//Objeto que agrupa diapositivas
     {
         for(var i=1;i<=this.numtd;i++)
             {
-                var x=new diap();
+                var x=new diap();//Crear una isatncia del objeto diap()
                 x.newdiap(this.class,i,"body");
                 this.dips.push(x);
             }
